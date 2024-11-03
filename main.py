@@ -46,7 +46,7 @@ TOPIC_KEYWORDS = {
     "pests": ["insects", "bugs", "aphids", "mites", "disease"],
     "soil": ["dirt", "compost", "fertilizer", "nutrients"],
     "planting": ["seed", "plant", "transplant", "sapling"],
-    # Add more topics and keywords as needed
+  
 }
 
 def classify_topic(user_input):
@@ -56,35 +56,6 @@ def classify_topic(user_input):
             return topic
     return "general"
 
-# # Level 3: Conversation Memory and Summarization
-# conversation_history = []
-
-# # def add_to_history(role, content):
-# #     conversation_history.append({"role": role, "content": content})
-
-# def summarize_conversation():
-#     summary_prompt = f"Summarize the following conversation about gardening:\n\n"
-#     for entry in conversation_history:
-#         summary_prompt += f"{entry['role']}: {entry['content']}\n"
-#     summary_prompt += "\nSummary:"
-    
-#     try:
-#         response = model.generate_content(summary_prompt)
-#         return response.text
-#     except Exception as e:
-#         return f"An error occurred while summarizing: {e}"
-
-# # Level 4: Persistent Memory and Retrieval
-# def save_conversation(filename="conversation_history.json"):
-#     with open(filename, 'w') as f:
-#         json.dump(conversation_history, f)
-
-# def load_conversation(filename="conversation_history.json"):
-#     try:
-#         with open(filename, 'r') as f:
-#             return json.load(f)
-#     except FileNotFoundError:
-#         return []
 
 def main():
     print(colored("Welcome to your Gardening Guide Assistant! How Can I Help You? (Type 'quit' to exit)", 'green'))
@@ -94,11 +65,7 @@ def main():
         if user_input.lower() == 'quit':
             print(colored("Thank you for using the Gardening Guide Assistant.", 'green'))
             return
-            # summary = summarize_conversation()
-            # print("\nHere's a summary of our conversation:")
-            # print(summary)
-            # save_conversation()
-            # break
+          
         
         else: 
             topic = classify_topic(user_input)
@@ -107,8 +74,6 @@ def main():
             print(f"\nASSISTANT RESPONSE:\n")
         print(colored(f"{response}", 'grey', 'on_cyan'))   
         
-        # add_to_history("Human", user_input)
-        # add_to_history("Assistant", response)
-
+       
 if __name__ == "__main__":
     main()
